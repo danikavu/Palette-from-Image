@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: imgpalette
+Version: 1.0.0
+Summary: Creates a color palette based on a given Image.
+Home-page: UNKNOWN
+Author: Daniel Kavoulakos
+Author-email: dan_kavoulakos@hotmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+License-File: LICENSE
+
+UNKNOWN
+

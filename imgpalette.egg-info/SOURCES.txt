@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+imgpalette/__init__.py
+imgpalette/imgpalette.py
+imgpalette.egg-info/PKG-INFO
+imgpalette.egg-info/SOURCES.txt
+imgpalette.egg-info/dependency_links.txt
+imgpalette.egg-info/requires.txt
+imgpalette.egg-info/top_level.txt
