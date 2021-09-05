@@ -10,9 +10,22 @@ Python 3.7 or higher.
 ### Installation
 
 1 - Clone this repo.
+
 2 - Inside repo folder run commands below
 
 	python setup.py install
+	
+or
+
+1 - Clone this repo
+
+2 - Inside repo folder run commands below
+
+	python setup.py bdist_wheel
+	
+3 - Inside generated dist folder run 
+
+	pip install imgpalette-1.0.0-py3-none-any.whl
 	
 ooooooooor just use the code in imgpalette.py
 
