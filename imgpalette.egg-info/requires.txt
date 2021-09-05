@@ -1,4 +1,0 @@
-numpy
-requests
-scikit-learn
-pillow
