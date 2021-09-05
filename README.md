@@ -15,11 +15,7 @@ Python 3.7 or higher.
 
 	python setup.py install
 	
-or
-
-1 - Clone this repo
-
-2 - Inside repo folder run commands below
+or for the pip's
 
 	python setup.py bdist_wheel
 	
