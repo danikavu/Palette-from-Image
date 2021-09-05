@@ -1,7 +1,7 @@
 ## imgpalette
 
 If of any use to anyone, imgpalette creates a palette of colours based on a given Image. 
-It uses the KMeans cluster algorithm. [fyi](https://scikit-learn.org/stable/modules/clustering.html#k-means
+It uses the KMeans cluster algorithm. [fyi](https://scikit-learn.org/stable/modules/clustering.html#k-means)
 
 ### Requirements
 
