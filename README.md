@@ -44,3 +44,5 @@ in palette_from_image you can set the number of colors in the palette and a file
 
 #
 That's all folks
+
+![Image 3](./pics/ytho.png)
