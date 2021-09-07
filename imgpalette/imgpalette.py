@@ -5,7 +5,7 @@ import requests
 import numpy as np
 from os.path import expanduser
 from PIL import Image
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, MiniBatchKMeans
 
 # Set user directory for saving Images from web.
 HOME = expanduser("~")
@@ -33,7 +33,7 @@ def load_image(picture, fname):
         return image
 
 
-def make_clusters(image, clusters):
+def make_clusters(image, clusters, fast):
     """
     Makes color clusters using K-Means clustering.
     """
@@ -45,8 +45,17 @@ def make_clusters(image, clusters):
     array_n = np.unique(array_n.ravel())
     # Convert from datatype V3 back to uint8 and reshape back to original shape.
     array_n = array_n.view(array.dtype).reshape(-1, array.shape[-1])
-    # We use K-Means for clustering. Ref. https://scikit-learn.org/stable/modules/clustering.html#k-means
-    km = KMeans(clusters).fit(array_n)
+    # We use K-Means for clustering.
+    if not fast:
+        """
+        https://scikit-learn.org/stable/modules/clustering.html#k-means
+        """
+        km = KMeans(clusters).fit(array_n)
+    else:
+        """
+        https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html#sklearn.cluster.MiniBatchKMeans
+        """
+        km = MiniBatchKMeans(clusters).fit(array_n)
     # Convert clusters back to int from float.
     cluster_points = km.cluster_centers_.astype(int)
     # Order cluster points from light to dark.
@@ -106,14 +115,14 @@ def final_output(image, backround, palette):
     return backround
 
 
-def palette_from_image(picture, clusters=10, fname=False):
+def palette_from_image(picture, clusters=10, fname=False, fast=False):
     """
     Main function that calls all required functions.
     """
     image = load_image(picture, fname)
     img = image.convert('RGB')
     
-    cluster_points = make_clusters(img, clusters)
+    cluster_points = make_clusters(img, clusters, fast)
     palette = make_palette(cluster_points, img)
     backround = make_backround(img)
     
